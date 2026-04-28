@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="bg">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Astralis Design Options</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #171717;
+        --muted: #71717a;
+        --paper: #f6f5f1;
+        --line: #e4e1d8;
+        --gold: #b8975a;
+        --orange: #ea580c;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #e9e7df;
+        color: var(--ink);
+        font-family: Inter, Arial, sans-serif;
+      }
+
+      .page {
+        padding: 28px;
+      }
+
+      .intro {
+        max-width: 1180px;
+        margin: 0 auto 24px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .intro h1 {
+        margin: 0;
+        font-family: Montserrat, sans-serif;
+        font-size: clamp(28px, 4vw, 52px);
+        line-height: 0.95;
+        letter-spacing: -0.04em;
+      }
+
+      .intro p {
+        margin: 0;
+        max-width: 520px;
+        color: #5c5c55;
+        font-weight: 700;
+        line-height: 1.5;
+      }
+
+      .options {
+        max-width: 1180px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .option {
+        background: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        min-height: 760px;
+        overflow: hidden;
+        box-shadow: 0 22px 70px rgba(23, 23, 23, 0.14);
+      }
+
+      .option-title {
+        padding: 16px 18px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .option-title strong {
+        font-family: Montserrat, sans-serif;
+        font-size: 13px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .option-title span {
+        color: #777;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .mock-nav {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 18px 22px;
+        font-family: Montserrat, sans-serif;
+      }
+
+      .brand {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .brand b {
+        font-size: 24px;
+        line-height: 1;
+        letter-spacing: -0.06em;
+      }
+
+      .brand small {
+        color: var(--orange);
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: 0.36em;
+        text-transform: uppercase;
+      }
+
+      .nav-lines {
+        display: flex;
+        gap: 16px;
+      }
+
+      .nav-lines i {
+        width: 42px;
+        height: 7px;
+        border-radius: 999px;
+        background: currentColor;
+        opacity: 0.18;
+      }
+
+      .cta {
+        border: 0;
+        border-radius: 4px;
+        padding: 13px 18px;
+        font-family: Montserrat, sans-serif;
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 340px;
+        padding: 42px 24px 34px;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: var(--hero-image);
+        background-size: cover;
+        background-position: center;
+        z-index: 0;
+      }
+
+      .hero > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+        color: var(--gold);
+        font-family: Montserrat, sans-serif;
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 34px;
+        height: 2px;
+        background: currentColor;
+      }
+
+      .hero h2 {
+        margin: 0 0 18px;
+        font-family: Montserrat, sans-serif;
+        font-size: 44px;
+        line-height: 0.9;
+        letter-spacing: -0.06em;
+      }
+
+      .hero h2 em {
+        display: block;
+        margin-top: 8px;
+        font-family: Inter, sans-serif;
+        font-size: 44px;
+        font-weight: 300;
+        letter-spacing: -0.06em;
+      }
+
+      .hero p {
+        max-width: 440px;
+        margin: 0 0 26px;
+        font-size: 15px;
+        line-height: 1.65;
+        font-weight: 600;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .hero-actions a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 140px;
+        min-height: 46px;
+        border: 1px solid currentColor;
+        text-decoration: none;
+        font-family: Montserrat, sans-serif;
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .trust {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: rgba(0, 0, 0, 0.1);
+      }
+
+      .trust div {
+        padding: 20px 16px;
+        background: #fff;
+      }
+
+      .trust b {
+        display: block;
+        font-family: Montserrat, sans-serif;
+        font-size: 22px;
+        line-height: 1;
+      }
+
+      .trust span {
+        display: block;
+        margin-top: 7px;
+        color: var(--muted);
+        font-size: 9px;
+        font-weight: 900;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .catalog {
+        padding: 34px 22px;
+      }
+
+      .catalog h3 {
+        margin: 0 0 8px;
+        font-family: Montserrat, sans-serif;
+        font-size: 30px;
+        line-height: 1;
+        letter-spacing: -0.05em;
+      }
+
+      .catalog p {
+        margin: 0 0 22px;
+        color: var(--muted);
+        font-weight: 700;
+        line-height: 1.45;
+      }
+
+      .filters {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 18px;
+      }
+
+      .filters span {
+        border: 1px solid rgba(0, 0, 0, 0.13);
+        padding: 8px 12px;
+        border-radius: 999px;
+        font-family: Montserrat, sans-serif;
+        font-size: 9px;
+        font-weight: 900;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .product {
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        background: #fff;
+        overflow: hidden;
+      }
+
+      .product-image {
+        height: 180px;
+        padding: 16px;
+        background: #f6f4ef;
+      }
+
+      .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+
+      .product-body {
+        padding: 18px;
+      }
+
+      .product h4 {
+        margin: 0 0 12px;
+        font-family: Montserrat, sans-serif;
+        font-size: 18px;
+        line-height: 1.2;
+      }
+
+      .price {
+        margin-bottom: 14px;
+        color: #6f6b62;
+        font-family: Montserrat, sans-serif;
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .chips {
+        display: flex;
+        gap: 7px;
+        flex-wrap: wrap;
+      }
+
+      .chips span {
+        background: #f1f0ec;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        padding: 5px 8px;
+        border-radius: 999px;
+        color: #57534e;
+        font-size: 10px;
+        font-weight: 800;
+      }
+
+      .product button {
+        width: 100%;
+        min-height: 48px;
+        border: 0;
+        font-family: Montserrat, sans-serif;
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .premium .option-title {
+        background: #151512;
+        color: #fff;
+      }
+
+      .premium .mock-nav {
+        background: rgba(21, 21, 18, 0.96);
+        color: #fff;
+      }
+
+      .premium .cta,
+      .premium .hero-actions a:first-child,
+      .premium .product button {
+        background: var(--gold);
+        color: #fff;
+      }
+
+      .premium .hero {
+        color: #fff;
+        --hero-image: linear-gradient(90deg, rgba(10, 10, 9, 0.86), rgba(10, 10, 9, 0.34)),
+          url("../public/images/hero-container-construction.png");
+      }
+
+      .premium .hero h2 em {
+        color: var(--gold);
+      }
+
+      .premium .hero-actions a:last-child {
+        color: #fff;
+      }
+
+      .premium .catalog {
+        background: #f6f5f1;
+      }
+
+      .premium .filters span:first-child {
+        background: #151512;
+        color: #fff;
+      }
+
+      .premium .product {
+        border-radius: 8px;
+        box-shadow: 0 20px 44px rgba(22, 22, 18, 0.12);
+      }
+
+      .corporate .option-title {
+        background: #fff;
+      }
+
+      .corporate .mock-nav {
+        background: #fff;
+        color: #0f172a;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .corporate .cta,
+      .corporate .hero-actions a:first-child,
+      .corporate .product button {
+        background: #0f172a;
+        color: #fff;
+      }
+
+      .corporate .hero {
+        color: #0f172a;
+        background: #f8fafc;
+        min-height: 330px;
+      }
+
+      .corporate .hero::before {
+        inset: 28px 22px 28px 52%;
+        border-radius: 8px;
+        --hero-image: url("../public/images/hero-container-construction.png");
+        box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+      }
+
+      .corporate .hero h2 {
+        font-size: 38px;
+        max-width: 55%;
+        line-height: 0.98;
+      }
+
+      .corporate .hero h2 em {
+        color: #2563eb;
+        font-size: 34px;
+      }
+
+      .corporate .hero p {
+        max-width: 50%;
+        color: #475569;
+      }
+
+      .corporate .hero-actions a:last-child {
+        color: #0f172a;
+      }
+
+      .corporate .catalog {
+        background: #fff;
+      }
+
+      .corporate .filters span:first-child {
+        background: #0f172a;
+        color: #fff;
+      }
+
+      .corporate .product {
+        border-radius: 12px;
+        box-shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
+      }
+
+      .sales .option-title {
+        background: #fff7ed;
+      }
+
+      .sales .mock-nav {
+        background: #fff;
+        color: #171717;
+        border-bottom: 3px solid var(--orange);
+      }
+
+      .sales .cta,
+      .sales .hero-actions a:first-child,
+      .sales .product button {
+        background: var(--orange);
+        color: #fff;
+      }
+
+      .sales .hero {
+        color: #fff;
+        --hero-image: linear-gradient(90deg, rgba(8, 8, 8, 0.82), rgba(234, 88, 12, 0.28)),
+          url("../public/images/hero-container-construction.png");
+      }
+
+      .sales .hero h2 {
+        font-size: 39px;
+      }
+
+      .sales .hero h2 em {
+        color: #fed7aa;
+        font-weight: 500;
+      }
+
+      .sales .hero p {
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .sales .hero-actions a:last-child {
+        color: #fff;
+      }
+
+      .sales .trust div:first-child b {
+        color: var(--orange);
+      }
+
+      .sales .catalog {
+        background: #fff7ed;
+      }
+
+      .sales .filters span:first-child {
+        background: var(--orange);
+        border-color: var(--orange);
+        color: #fff;
+      }
+
+      .sales .product {
+        border-radius: 6px;
+        box-shadow: 0 18px 44px rgba(234, 88, 12, 0.13);
+      }
+
+      @media (max-width: 980px) {
+        .intro {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .options {
+          grid-template-columns: 1fr;
+        }
+
+        .option {
+          min-height: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header class="intro">
+        <div>
+          <h1>ASTRALIS<br />design preview</h1>
+        </div>
+        <p>
+          Това е само визуална чернова. Реалният сайт не е променен. Избери посока, после я
+          правим внимателно в проекта.
+        </p>
+      </header>
+
+      <section class="options">
+        <article class="option premium">
+          <div class="option-title">
+            <strong>1. Premium Industrial</strong>
+            <span>сериозен, строителен, премиум</span>
+          </div>
+          <nav class="mock-nav">
+            <div class="brand"><b>ASTRALIS</b><small>Контейнери</small></div>
+            <div class="nav-lines"><i></i><i></i><i></i></div>
+            <button class="cta">Оферта</button>
+          </nav>
+          <section class="hero">
+            <div class="eyebrow">директно от производител</div>
+            <h2>ASTRALIS <em>Контейнери</em></h2>
+            <p>
+              Висококачествени контейнери и модулни конструкции с бърза доставка в цялата
+              страна.
+            </p>
+            <div class="hero-actions">
+              <a href="#">Каталог</a>
+              <a href="#">Консултация</a>
+            </div>
+          </section>
+          <div class="trust">
+            <div><b>93</b><span>модела</span></div>
+            <div><b>3</b><span>категории</span></div>
+            <div><b>24ч</b><span>оферта</span></div>
+          </div>
+          <section class="catalog">
+            <h3>Каталог</h3>
+            <p>Подреден индустриален каталог с ясни категории и силен фокус върху продукта.</p>
+            <div class="filters"><span>Всички 93</span><span>Контейнери 36</span><span>Къщи 53</span></div>
+            <div class="product">
+              <div class="product-image">
+                <img src="../public/products/12547_9134-image-zhilishten-konteyner-asiaprefabrik-mk02-1.webp" alt="" />
+              </div>
+              <div class="product-body">
+                <h4>Жилищен контейнер Bautrax MB02</h4>
+                <div class="price">Цена по заявка</div>
+                <div class="chips"><span>Марка: Bautrax</span><span>Модел: MB02</span></div>
+              </div>
+              <button>Детайли</button>
+            </div>
+          </section>
+        </article>
+
+        <article class="option corporate">
+          <div class="option-title">
+            <strong>2. Clean Corporate</strong>
+            <span>лек, чист, европейски</span>
+          </div>
+          <nav class="mock-nav">
+            <div class="brand"><b>ASTRALIS</b><small>Контейнери</small></div>
+            <div class="nav-lines"><i></i><i></i><i></i></div>
+            <button class="cta">Оферта</button>
+          </nav>
+          <section class="hero">
+            <div class="eyebrow">модулни решения</div>
+            <h2>Контейнери за бизнес и дом <em>от проверен доставчик</em></h2>
+            <p>
+              Изчистен сайт, повече въздух, спокойна визуална система и много ясна информация.
+            </p>
+            <div class="hero-actions">
+              <a href="#">Разгледай</a>
+              <a href="#">Контакт</a>
+            </div>
+          </section>
+          <div class="trust">
+            <div><b>93</b><span>модела</span></div>
+            <div><b>100%</b><span>актуални</span></div>
+            <div><b>BG</b><span>доставка</span></div>
+          </div>
+          <section class="catalog">
+            <h3>Продукти</h3>
+            <p>По-спокоен каталог, по-ясна типография и по-силен корпоративен вид.</p>
+            <div class="filters"><span>Всички 93</span><span>Контейнери 36</span><span>Къщи 53</span></div>
+            <div class="product">
+              <div class="product-image">
+                <img src="../public/products/12573_9168-image-sglobyaema-kashta-asiaprefabrik-t59.webp" alt="" />
+              </div>
+              <div class="product-body">
+                <h4>Сглобяема къща Bautrax B59</h4>
+                <div class="price">Цена по заявка</div>
+                <div class="chips"><span>Площ: 59</span><span>Произход: Турция</span></div>
+              </div>
+              <button>Виж продукта</button>
+            </div>
+          </section>
+        </article>
+
+        <article class="option sales">
+          <div class="option-title">
+            <strong>3. Sales Focused</strong>
+            <span>повече лийдове и CTA</span>
+          </div>
+          <nav class="mock-nav">
+            <div class="brand"><b>ASTRALIS</b><small>Контейнери</small></div>
+            <div class="nav-lines"><i></i><i></i><i></i></div>
+            <button class="cta">Запитване</button>
+          </nav>
+          <section class="hero">
+            <div class="eyebrow">оферта до 24 часа</div>
+            <h2>Избери контейнер <em>получи оферта бързо</em></h2>
+            <p>
+              По-директна страница, която води клиента към каталог, телефон и запитване.
+            </p>
+            <div class="hero-actions">
+              <a href="#">Вземи оферта</a>
+              <a href="#">Виж модели</a>
+            </div>
+          </section>
+          <div class="trust">
+            <div><b>24ч</b><span>оферта</span></div>
+            <div><b>93</b><span>модела</span></div>
+            <div><b>BG</b><span>доставка</span></div>
+          </div>
+          <section class="catalog">
+            <h3>Избери модел</h3>
+            <p>По-продаващ каталог с видими бутони и по-силно насочване към запитване.</p>
+            <div class="filters"><span>Всички 93</span><span>Контейнери 36</span><span>Къщи 53</span></div>
+            <div class="product">
+              <div class="product-image">
+                <img src="../public/products/12556_9146-image-toaletna-furgon-asiaprefabrik-k03.webp" alt="" />
+              </div>
+              <div class="product-body">
+                <h4>Тоалетна фургон Bautrax İB03</h4>
+                <div class="price">Цена по заявка</div>
+                <div class="chips"><span>Модел: İB03</span><span>Площ: 9,6</span></div>
+              </div>
+              <button>Изпрати запитване</button>
+            </div>
+          </section>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

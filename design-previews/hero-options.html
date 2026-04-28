@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="bg">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Astralis Hero Options</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #181815;
+        --white: #ffffff;
+        --muted-white: rgba(255, 255, 255, 0.82);
+        --line: rgba(255, 255, 255, 0.28);
+        --gold: #bd9b60;
+        --gold-strong: #c6a365;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: #f4f2ed;
+        color: var(--ink);
+        font-family: Inter, Arial, sans-serif;
+      }
+
+      .preview-header {
+        padding: 24px 28px;
+        background: #f4f2ed;
+        border-bottom: 1px solid #ded9ce;
+      }
+
+      .preview-header h1 {
+        margin: 0 0 6px;
+        font-family: Montserrat, sans-serif;
+        font-size: 34px;
+        line-height: 0.98;
+        letter-spacing: 0;
+      }
+
+      .preview-header p {
+        margin: 0;
+        max-width: 760px;
+        color: #666158;
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      .variant-label {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 14px 28px;
+        background: #181815;
+        color: #fff;
+        font-family: Montserrat, sans-serif;
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .variant-label span {
+        color: rgba(255, 255, 255, 0.56);
+        font-weight: 700;
+        text-transform: none;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 760px;
+        overflow: hidden;
+        color: #fff;
+        background: #111;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: var(--photo);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: var(--photo-position);
+        filter: saturate(1.02) contrast(1.04) brightness(var(--photo-brightness));
+        transform: scale(var(--photo-scale));
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--overlay);
+      }
+
+      .nav {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 38px 7vw 0;
+        font-family: Montserrat, sans-serif;
+      }
+
+      .brand {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .brand b {
+        font-size: 38px;
+        line-height: 0.88;
+        letter-spacing: 0;
+      }
+
+      .brand span {
+        margin-top: 12px;
+        color: var(--gold-strong);
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 0.34em;
+        text-transform: uppercase;
+      }
+
+      .links {
+        display: flex;
+        align-items: center;
+        gap: 44px;
+      }
+
+      .links a {
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 900;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .nav-cta {
+        min-width: 190px;
+        padding: 24px 30px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.96);
+        color: #151515;
+        text-align: center;
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 2;
+        max-width: 1500px;
+        min-height: 610px;
+        margin: 0 auto;
+        padding: 86px 7vw 70px;
+        display: flex;
+        align-items: center;
+      }
+
+      .copy {
+        width: min(620px, 52vw);
+      }
+
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        margin-bottom: 28px;
+        color: var(--gold-strong);
+        font-family: Montserrat, sans-serif;
+        font-size: 14px;
+        font-weight: 900;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 52px;
+        height: 2px;
+        background: currentColor;
+      }
+
+      h2 {
+        margin: 0;
+        font-family: Montserrat, sans-serif;
+        font-size: 96px;
+        line-height: 0.92;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      h2 span {
+        display: block;
+        margin-top: 18px;
+        color: var(--gold);
+        font-family: Inter, Arial, sans-serif;
+        font-size: 82px;
+        font-style: italic;
+        font-weight: 400;
+        text-transform: none;
+      }
+
+      .lead {
+        margin: 36px 0 0;
+        max-width: 620px;
+        color: var(--muted-white);
+        font-size: 24px;
+        line-height: 1.55;
+        font-weight: 500;
+      }
+
+      .actions {
+        display: flex;
+        gap: 18px;
+        margin-top: 48px;
+      }
+
+      .actions a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 236px;
+        min-height: 72px;
+        border: 2px solid currentColor;
+        color: #fff;
+        text-decoration: none;
+        font-family: Montserrat, sans-serif;
+        font-size: 15px;
+        font-weight: 900;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+
+      .actions a:first-child {
+        border-color: var(--gold);
+        background: var(--gold);
+      }
+
+      .balanced {
+        --photo: url("../public/images/hero-container-construction.png");
+        --photo-position: 62% center;
+        --photo-brightness: 1.04;
+        --photo-scale: 1.01;
+        --overlay:
+          linear-gradient(90deg, rgba(10, 10, 10, 0.78) 0%, rgba(10, 10, 10, 0.66) 31%, rgba(10, 10, 10, 0.24) 54%, rgba(10, 10, 10, 0.08) 100%),
+          linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.05) 44%, rgba(0, 0, 0, 0.18) 100%);
+      }
+
+      .balanced .copy {
+        width: min(650px, 49vw);
+      }
+
+      .balanced .lead {
+        max-width: 650px;
+      }
+
+      .product-first {
+        --photo: url("../public/images/hero-container-construction.png");
+        --photo-position: 67% center;
+        --photo-brightness: 1.13;
+        --photo-scale: 1;
+        --overlay:
+          linear-gradient(90deg, rgba(8, 8, 8, 0.86) 0%, rgba(8, 8, 8, 0.7) 25%, rgba(8, 8, 8, 0.3) 43%, rgba(8, 8, 8, 0.02) 68%, rgba(8, 8, 8, 0) 100%),
+          linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.02) 55%, rgba(0, 0, 0, 0.1) 100%);
+      }
+
+      .product-first .hero-inner {
+        align-items: flex-start;
+        padding-top: 120px;
+      }
+
+      .product-first .copy {
+        width: min(540px, 42vw);
+      }
+
+      .product-first h2 {
+        font-size: 76px;
+      }
+
+      .product-first h2 span {
+        font-size: 66px;
+      }
+
+      .product-first .lead {
+        max-width: 520px;
+        font-size: 22px;
+      }
+
+      .product-first .actions a {
+        min-width: 216px;
+      }
+
+      @media (max-width: 980px) {
+        .variant-label {
+          position: relative;
+          flex-direction: column;
+          gap: 4px;
+        }
+
+        .hero {
+          min-height: 720px;
+        }
+
+        .hero::before {
+          background-position: 66% center;
+        }
+
+        .nav {
+          padding: 26px 24px 0;
+        }
+
+        .brand b {
+          font-size: 30px;
+        }
+
+        .links {
+          display: none;
+        }
+
+        .hero-inner {
+          min-height: 600px;
+          padding: 72px 24px 56px;
+          align-items: flex-start;
+        }
+
+        .copy,
+        .balanced .copy,
+        .product-first .copy {
+          width: 100%;
+          max-width: 440px;
+        }
+
+        .eyebrow {
+          font-size: 11px;
+          letter-spacing: 0.18em;
+        }
+
+        h2,
+        .product-first h2 {
+          font-size: 54px;
+        }
+
+        h2 span,
+        .product-first h2 span {
+          font-size: 48px;
+        }
+
+        .lead,
+        .product-first .lead {
+          font-size: 19px;
+        }
+
+        .actions {
+          flex-direction: column;
+        }
+
+        .actions a,
+        .product-first .actions a {
+          width: 100%;
+          min-width: 0;
+          min-height: 64px;
+        }
+
+        .balanced,
+        .product-first {
+          --overlay:
+            linear-gradient(90deg, rgba(8, 8, 8, 0.8) 0%, rgba(8, 8, 8, 0.56) 48%, rgba(8, 8, 8, 0.16) 100%),
+            linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.06) 50%, rgba(0, 0, 0, 0.18) 100%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="preview-header">
+      <h1>Hero-only preview</h1>
+      <p>
+        Реалният сайт не е променен. Тук гледаме само баланса между надписите и контейнера.
+      </p>
+    </header>
+
+    <div class="variant-label">
+      <strong>Вариант A: Balanced</strong>
+      <span>надписът е силен, но продуктът остава видим</span>
+    </div>
+    <section class="hero balanced">
+      <nav class="nav">
+        <div class="brand">
+          <b>ASTRALIS</b>
+          <span>Контейнери</span>
+        </div>
+        <div class="links">
+          <a href="#">Начало</a>
+          <a href="#">За нас</a>
+          <a href="#">Промоции</a>
+          <a href="#">Каталог</a>
+          <a class="nav-cta" href="#">Свържи се</a>
+        </div>
+      </nav>
+      <div class="hero-inner">
+        <div class="copy">
+          <div class="eyebrow">директно от производител</div>
+          <h2>ASTRALIS <span>Контейнери</span></h2>
+          <p class="lead">
+            Професионални контейнерни и модулни решения с бърза доставка в цялата страна.
+          </p>
+          <div class="actions">
+            <a href="#">Към каталога</a>
+            <a href="#">Връзка с нас</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="variant-label">
+      <strong>Вариант B: Product First</strong>
+      <span>контейнерът е по-светъл и води композицията</span>
+    </div>
+    <section class="hero product-first">
+      <nav class="nav">
+        <div class="brand">
+          <b>ASTRALIS</b>
+          <span>Контейнери</span>
+        </div>
+        <div class="links">
+          <a href="#">Начало</a>
+          <a href="#">За нас</a>
+          <a href="#">Промоции</a>
+          <a href="#">Каталог</a>
+          <a class="nav-cta" href="#">Свържи се</a>
+        </div>
+      </nav>
+      <div class="hero-inner">
+        <div class="copy">
+          <div class="eyebrow">над 90 модела</div>
+          <h2>ASTRALIS <span>Контейнери</span></h2>
+          <p class="lead">
+            Контейнери, сглобяеми и модулни къщи за бизнес, строителство и частни проекти.
+          </p>
+          <div class="actions">
+            <a href="#">Разгледай</a>
+            <a href="#">Оферта</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a [Next.js](https://nextjs.org) project for the Astralis catalog and CRM.
 
 ## Getting Started
 
@@ -15,6 +15,22 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Lead Email Notifications
+
+New website inquiries can send an email notification to the sales team in addition to being stored in Supabase.
+
+Configure these variables in `.env.local`:
+
+```bash
+LEAD_NOTIFICATION_EMAILS=rajkovdenislav@gmail.com
+SMTP_SERVICE=Gmail
+SMTP_USER=rajkovdenislav@gmail.com
+SMTP_FROM=rajkovdenislav@gmail.com
+SMTP_PASS=your-google-app-password
+```
+
+For Gmail, use a Google App Password after enabling 2-Step Verification on the sending account.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 

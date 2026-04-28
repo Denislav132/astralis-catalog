@@ -1,0 +1,1222 @@
+[
+  {
+    "Name": "Контейнер Bautrax",
+    "Price": "1 936.00лв",
+    "Description": "Стандартен жилищен контейнер Bautrax с високо качество.",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/17800_7328-image--sale.webp"
+    ]
+  },
+  {
+    "Name": "Жилищен контейнер Контейнер с баня и тоалетна 3x7 м",
+    "Price": "7 500.00лв",
+    "Description": "Контейнер с баня и тоалетна 3x7 м — напълно оборудван.",
+    "Specs": {
+      "Model": "3x7 м",
+      "Brand": "Bautrax"
+    },
+    "Images": [
+      "/products/15345_10975-image-zhilishten-konteyner-konteyner-s-banya-i-toaletna-3x7-m.webp"
+    ]
+  },
+  {
+    "Name": "Будка за пазачи Bautrax GB01",
+    "Price": "Цена по договаряне",
+    "Description": "Будка за пазачи Bautrax GB01 — 7.2 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "GB01",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12561_9151-image-budka-za-pazachi-asiaprefabrik-gk01-1.webp"
+    ]
+  },
+  {
+    "Name": "Будка за пазачи Bautrax GB02",
+    "Price": "Цена по договаряне",
+    "Description": "Будка за пазачи Bautrax GB02 — 7.2 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "GB02",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12560_9152-image-budka-za-pazachi-asiaprefabrik-gk02-1.webp"
+    ]
+  },
+  {
+    "Name": "Будка за пазачи Bautrax GB03",
+    "Price": "Цена по договаряне",
+    "Description": "Будка за пазачи Bautrax GB03 — 7.2 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "GB03",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12559_9153-image-budka-za-pazachi-asiaprefabrik-gk03.webp"
+    ]
+  },
+  {
+    "Name": "Тоалетна фургон Bautrax İB01",
+    "Price": "Цена по договаряне",
+    "Description": "Тоалетна фургон Bautrax İB01 — 4.8 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "İB01",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12558_9144-image-toaletna-furgon-asiaprefabrik-k01-1.webp"
+    ]
+  },
+  {
+    "Name": "Тоалетна фургон Bautrax İB02",
+    "Price": "Цена по договаряне",
+    "Description": "Тоалетна фургон Bautrax İB02 — 7.2 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "İB02",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12557_9145-image-toaletna-furgon-asiaprefabrik-k02-1.webp"
+    ]
+  },
+  {
+    "Name": "Тоалетна фургон Bautrax İB03",
+    "Price": "Цена по договаряне",
+    "Description": "Тоалетна фургон Bautrax İB03 — 9.6 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "İB03",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12556_9146-image-toaletna-furgon-asiaprefabrik-k03.webp"
+    ]
+  },
+  {
+    "Name": "Тоалетна фургон Bautrax İB04",
+    "Price": "Цена по договаряне",
+    "Description": "Тоалетна фургон Bautrax İB04 — 14.4 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "İB04",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12555_9147-image-toaletna-furgon-asiaprefabrik-k04.webp"
+    ]
+  },
+  {
+    "Name": "Тоалетна фургон Bautrax İB05",
+    "Price": "Цена по договаряне",
+    "Description": "Тоалетна фургон Bautrax İB05 — 20.6 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "İB05",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12554_9148-image-toaletna-furgon-asiaprefabrik-k05.webp"
+    ]
+  },
+  {
+    "Name": "Тоалетна фургон Bautrax İB06",
+    "Price": "Цена по договаряне",
+    "Description": "Тоалетна фургон Bautrax İB06 — 20.6 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "İB06",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12553_9149-image-toaletna-furgon-asiaprefabrik-k06-1.webp"
+    ]
+  },
+  {
+    "Name": "Тоалетна фургон Bautrax İB07",
+    "Price": "Цена по договаряне",
+    "Description": "Тоалетна фургон Bautrax İB07 — 20.6 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "İB07",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12552_9150-image-toaletna-furgon-asiaprefabrik-k07-1.webp"
+    ]
+  },
+  {
+    "Name": "Жилищен контейнер Bautrax MB02",
+    "Price": "Цена по договаряне",
+    "Description": "Жилищен контейнер Bautrax MB02.",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "MB02",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12547_9134-image-zhilishten-konteyner-asiaprefabrik-mk02-1.webp"
+    ]
+  },
+  {
+    "Name": "Жилищен контейнер Bautrax MB03",
+    "Price": "Цена по договаряне",
+    "Description": "Жилищен контейнер Bautrax MB03.",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "MB03",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12546_9135-image-zhilishten-konteyner-asiaprefabrik-mk03.webp"
+    ]
+  },
+  {
+    "Name": "Жилищен контейнер Bautrax MB04",
+    "Price": "Цена по договаряне",
+    "Description": "Жилищен контейнер Bautrax MB04.",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "MB04",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12545_9136-image-zhilishten-konteyner-asiaprefabrik-mk04.webp"
+    ]
+  },
+  {
+    "Name": "Жилищен контейнер Bautrax MB05",
+    "Price": "Цена по договаряне",
+    "Description": "Жилищен контейнер Bautrax MB05.",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "MB05",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12544_9137-image-zhilishten-konteyner-asiaprefabrik-mk05.webp"
+    ]
+  },
+  {
+    "Name": "Жилищен контейнер Bautrax MB06",
+    "Price": "Цена по договаряне",
+    "Description": "Жилищен контейнер Bautrax MB06.",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "MB06",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12543_9138-image-zhilishten-konteyner-asiaprefabrik-mk06.webp"
+    ]
+  },
+  {
+    "Name": "Жилищен контейнер Bautrax MB07",
+    "Price": "Цена по договаряне",
+    "Description": "Жилищен контейнер Bautrax MB07.",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "MB07",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12542_9139-image-zhilishten-konteyner-asiaprefabrik-mk07.webp"
+    ]
+  },
+  {
+    "Name": "Жилищен контейнер Bautrax MB08",
+    "Price": "Цена по договаряне",
+    "Description": "Жилищен контейнер Bautrax MB08.",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "MB08",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12541_9140-image-zhilishten-konteyner-asiaprefabrik-mk08.webp"
+    ]
+  },
+  {
+    "Name": "Жилищен контейнер Bautrax MB09",
+    "Price": "Цена по договаряне",
+    "Description": "Жилищен контейнер Bautrax MB09.",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "MB09",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12540_9141-image-zhilishten-konteyner-asiaprefabrik-mk09.webp"
+    ]
+  },
+  {
+    "Name": "Жилищен контейнер Bautrax MB10",
+    "Price": "Цена по договаряне",
+    "Description": "Жилищен контейнер Bautrax MB10.",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "MB10",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12539_9142-image-zhilishten-konteyner-asiaprefabrik-mk10.webp"
+    ]
+  },
+  {
+    "Name": "Жилищен контейнер Bautrax B02",
+    "Price": "Цена по договаряне",
+    "Description": "Жилищен контейнер Bautrax B02.",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B02",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12535_9117-image-zhilishten-konteyner-asiaprefabrik-k02.webp"
+    ]
+  },
+  {
+    "Name": "Жилищен контейнер Bautrax B03",
+    "Price": "Цена по договаряне",
+    "Description": "Жилищен контейнер Bautrax B03.",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B03",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12534_9118-image-zhilishten-konteyner-asiaprefabrik-k03-1.webp"
+    ]
+  },
+  {
+    "Name": "Жилищен контейнер Bautrax B04",
+    "Price": "Цена по договаряне",
+    "Description": "Жилищен контейнер Bautrax B04.",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B04",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12533_9119-image-zhilishten-konteyner-asiaprefabrik-k04-1.webp"
+    ]
+  },
+  {
+    "Name": "Жилищен контейнер Bautrax B05",
+    "Price": "Цена по договаряне",
+    "Description": "Жилищен контейнер Bautrax B05.",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B05",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12532_9120-image-zhilishten-konteyner-asiaprefabrik-k05-1.webp"
+    ]
+  },
+  {
+    "Name": "Жилищен контейнер Bautrax B06",
+    "Price": "Цена по договаряне",
+    "Description": "Жилищен контейнер Bautrax B06.",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B06",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12531_9121-image-zhilishten-konteyner-asiaprefabrik-k06-1.webp"
+    ]
+  },
+  {
+    "Name": "Жилищен контейнер Bautrax B08",
+    "Price": "Цена по договаряне",
+    "Description": "Жилищен контейнер Bautrax B08.",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B08",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12530_9122-image-zhilishten-konteyner-asiaprefabrik-k08-1.webp"
+    ]
+  },
+  {
+    "Name": "Жилищен контейнер Bautrax B10",
+    "Price": "Цена по договаряне",
+    "Description": "Жилищен контейнер Bautrax B10.",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B10",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12529_9123-image-zhilishten-konteyner-asiaprefabrik-k10-1.webp"
+    ]
+  },
+  {
+    "Name": "Жилищен контейнер Bautrax B11",
+    "Price": "7 500.00лв",
+    "Description": "Жилищен контейнер Bautrax B11.",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B11",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12528_9124-image-zhilishten-konteyner-asiaprefabrik-k11-1.webp"
+    ]
+  },
+  {
+    "Name": "Жилищен контейнер Bautrax B12",
+    "Price": "Цена по договаряне",
+    "Description": "Жилищен контейнер Bautrax B12.",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B12",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12527_9125-image-zhilishten-konteyner-asiaprefabrik-k12-1.webp"
+    ]
+  },
+  {
+    "Name": "Жилищен контейнер Bautrax B14",
+    "Price": "Цена по договаряне",
+    "Description": "Жилищен контейнер Bautrax B14.",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B14",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12526_9126-image-zhilishten-konteyner-asiaprefabrik-k14-1.webp"
+    ]
+  },
+  {
+    "Name": "Жилищен контейнер Bautrax B15",
+    "Price": "Цена по договаряне",
+    "Description": "Жилищен контейнер Bautrax B15.",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B15",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12525_9127-image-zhilishten-konteyner-asiaprefabrik-k15-1.webp"
+    ]
+  },
+  {
+    "Name": "Жилищен контейнер Bautrax B16",
+    "Price": "Цена по договаряне",
+    "Description": "Жилищен контейнер Bautrax B16.",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B16",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12524_9128-image-zhilishten-konteyner-asiaprefabrik-k16-1.webp"
+    ]
+  },
+  {
+    "Name": "Жилищен контейнер Bautrax B17",
+    "Price": "Цена по договаряне",
+    "Description": "Жилищен контейнер Bautrax B17.",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B17",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12523_9129-image-zhilishten-konteyner-asiaprefabrik-k17-1.webp"
+    ]
+  },
+  {
+    "Name": "Жилищен контейнер Bautrax B18",
+    "Price": "Цена по договаряне",
+    "Description": "Жилищен контейнер Bautrax B18.",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B18",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12522_9130-image-zhilishten-konteyner-asiaprefabrik-k18-1.webp"
+    ]
+  },
+  {
+    "Name": "Контейнер Bautrax 240x600 см",
+    "Price": "4 400.00лв",
+    "Description": "Стандартен офис контейнер с размери 2.40 x 6.00 м.",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "240x600 см",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/10063_7328-image--sale.webp"
+    ]
+  },
+  {
+    "Name": "Контейнер Bautrax B01 300x700 см",
+    "Price": "5 500.00лв",
+    "Description": "Контейнер Bautrax B01 с размери 3.00 x 7.00 м.",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B01 300x700 см",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/10062_7329-image--sale.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax F52 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax F52 — 52 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "F52 STEEL",
+      "Площ": "52 м²"
+    },
+    "Images": [
+      "/products/12638_9211-image--sale.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax F58 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax F58 — 58 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "F58 STEEL",
+      "Площ": "58 м²"
+    },
+    "Images": [
+      "/products/12637_9212-image--sale.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax F78 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax F78 — 78 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "F78 STEEL",
+      "Площ": "78 м²"
+    },
+    "Images": [
+      "/products/12636_9213-image--sale.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax F80-2 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax F80-2 — 80 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "F80-2 STEEL",
+      "Площ": "80 м²"
+    },
+    "Images": [
+      "/products/12635_9214-image--sale.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax F83 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax F83 — 83 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "F83 STEEL",
+      "Площ": "83 м²"
+    },
+    "Images": [
+      "/products/12634_9215-image--sale.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax F85 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax F85 — 85 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "F85 STEEL",
+      "Площ": "85 м²"
+    },
+    "Images": [
+      "/products/12633_9216-image--sale.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax F104 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax F104 — 104 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "F104 STEEL",
+      "Площ": "104 м²"
+    },
+    "Images": [
+      "/products/12632_9217-image--sale.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax F105 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax F105 — 105 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "F105 STEEL",
+      "Площ": "105 м²"
+    },
+    "Images": [
+      "/products/12631_9218-image--sale.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax F126 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax F126 — 126 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "F126 STEEL",
+      "Площ": "126 м²"
+    },
+    "Images": [
+      "/products/12630_9219-image--sale.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax F150 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax F150 — 150 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "F150 STEEL",
+      "Площ": "150 м²"
+    },
+    "Images": [
+      "/products/12629_9220-image--sale.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax FD105 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax FD105 — 105 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "FD105 STEEL",
+      "Площ": "105 м²"
+    },
+    "Images": [
+      "/products/12628_9221-image--sale.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax FD125 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax FD125 — 125 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "FD125 STEEL",
+      "Площ": "125 м²"
+    },
+    "Images": [
+      "/products/12627_9222-image--sale.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax FD128 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax FD128 — 128 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "FD128 STEEL",
+      "Площ": "128 м²"
+    },
+    "Images": [
+      "/products/12626_9223-image--sale.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax FD284 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax FD284 — 284 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "FD284 STEEL",
+      "Площ": "284 м²"
+    },
+    "Images": [
+      "/products/12625_9224-image--sale.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax D82 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax D82 — 82 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "D82 STEEL",
+      "Площ": "82 м²"
+    },
+    "Images": [
+      "/products/12622_9203-image-sglobyaema-kashta-asiaprefabrik-d82-steel-1.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax D124 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax D124 — 124 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "D124 STEEL",
+      "Площ": "124 м²"
+    },
+    "Images": [
+      "/products/12621_9204-image-sglobyaema-kashta-asiaprefabrik-d124-steel-1.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax D106 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax D106 — 106 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "D106 STEEL",
+      "Площ": "106 м²"
+    },
+    "Images": [
+      "/products/12620_9205-image-sglobyaema-kashta-asiaprefabrik-d106-steel.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax D129 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax D129 — 129 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "D129 STEEL",
+      "Площ": "129 м²"
+    },
+    "Images": [
+      "/products/12619_9206-image-sglobyaema-kashta-asiaprefabrik-d129-steel.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax D150 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax D150 — 150 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "D150 STEEL",
+      "Площ": "150 м²"
+    },
+    "Images": [
+      "/products/12618_9207-image-sglobyaema-kashta-asiaprefabrik-d150-steel.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax D153 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax D153 — 153 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "D153 STEEL",
+      "Площ": "153 м²"
+    },
+    "Images": [
+      "/products/12617_9208-image-sglobyaema-kashta-asiaprefabrik-d153-steel.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax D154 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax D154 — 154 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "D154 STEEL",
+      "Площ": "154 м²"
+    },
+    "Images": [
+      "/products/12616_9209-image-sglobyaema-kashta-asiaprefabrik-d154-steel.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax D184 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax D184 — 184 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "D184 STEEL",
+      "Площ": "184 м²"
+    },
+    "Images": [
+      "/products/12615_9210-image-sglobyaema-kashta-asiaprefabrik-d184-steel.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax 50 M2 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax — 50 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Площ": "50 м²",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12609_9190-image-sglobyaema-kashta-asiaprefabrik-50-m2-steel-1.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax 70 M2 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax — 70 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Площ": "70 м²",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12608_9191-image-sglobyaema-kashta-asiaprefabrik-70-m2-steel-1.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax 70-2 M2 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax — 70 м² (вариант 2).",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Площ": "70 м²",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12607_9192-image-sglobyaema-kashta-asiaprefabrik-70-2-m2-steel-1.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax 86 M2 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax — 86 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Площ": "86 м²",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12606_9193-image-sglobyaema-kashta-asiaprefabrik-86-m2-steel-1.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax 85 M2 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax — 85 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Площ": "85 м²",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12605_9194-image-sglobyaema-kashta-asiaprefabrik-85-m2-steel-1.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax 90 M2 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax — 90 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Площ": "90 м²",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12604_9195-image-sglobyaema-kashta-asiaprefabrik-90-m2-steel-1.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax 100 M2 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax — 100 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Площ": "100 м²",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12603_9196-image-sglobyaema-kashta-asiaprefabrik-100-m2-steel.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax 101 M2 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax — 101 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Площ": "101 м²",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12602_9197-image-sglobyaema-kashta-asiaprefabrik-101-m2-steel.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax 109 M2 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax — 109 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Площ": "109 м²",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12601_9198-image-sglobyaema-kashta-asiaprefabrik-109-m2-steel.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax 143 M2 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax — 143 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Площ": "143 м²",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12600_9199-image-sglobyaema-kashta-asiaprefabrik-143-m2-steel.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax 154 M2 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax — 154 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Площ": "154 м²",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12599_9200-image-sglobyaema-kashta-asiaprefabrik-154-m2-steel.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax 170 M2 STEEL",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема стоманена къща Bautrax — 170 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Площ": "170 м²",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12598_9201-image-sglobyaema-kashta-asiaprefabrik-170-m2-steel.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax B84",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема къща Bautrax B84 — 84 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B84",
+      "Площ": "84 м²"
+    },
+    "Images": [
+      "/products/12588_9172-image--sale.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax B88",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема къща Bautrax B88 — 88 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B88",
+      "Площ": "88 м²"
+    },
+    "Images": [
+      "/products/12587_9173-image--sale.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax B91-1",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема къща Bautrax B91-1 — 91 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B91-1",
+      "Площ": "91 м²"
+    },
+    "Images": [
+      "/products/12586_9174-image--sale.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax B91-2",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема къща Bautrax B91-2 — 91 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B91-2",
+      "Площ": "91 м²"
+    },
+    "Images": [
+      "/products/12585_9175-image--sale.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax B100",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема къща Bautrax B100 — 100 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B100",
+      "Площ": "100 м²"
+    },
+    "Images": [
+      "/products/12584_9176-image--sale.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax B101",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема къща Bautrax B101 — 101 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B101",
+      "Площ": "101 м²"
+    },
+    "Images": [
+      "/products/12583_9177-image--sale.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax B105",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема къща Bautrax B105 — 105 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B105",
+      "Площ": "105 м²"
+    },
+    "Images": [
+      "/products/12582_9178-image--sale.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax B109",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема къща Bautrax B109 — 109 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B109",
+      "Площ": "109 м²"
+    },
+    "Images": [
+      "/products/12581_9179-image--sale.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax B142",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема къща Bautrax B142 — 142 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B142",
+      "Площ": "142 м²"
+    },
+    "Images": [
+      "/products/12580_9180-image--sale.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax B90",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема къща Bautrax B90 — 90 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B90",
+      "Площ": "90 м²"
+    },
+    "Images": [
+      "/products/12579_9162-image-sglobyaema-kashta-asiaprefabrik-t90-1.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax B39-2",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема къща Bautrax B39-2 — 39 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B39-2",
+      "Площ": "39 м²"
+    },
+    "Images": [
+      "/products/12578_9163-image-sglobyaema-kashta-asiaprefabrik-t39-2-1.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax B45",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема къща Bautrax B45 — 45 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B45",
+      "Площ": "45 м²"
+    },
+    "Images": [
+      "/products/12577_9164-image-sglobyaema-kashta-asiaprefabrik-t45.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax B49-1",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема къща Bautrax B49-1 — 49 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B49-1",
+      "Площ": "49 м²"
+    },
+    "Images": [
+      "/products/12576_9165-image-sglobyaema-kashta-asiaprefabrik-t49-1.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax B49-2",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема къща Bautrax B49-2 — 49 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B49-2",
+      "Площ": "49 м²"
+    },
+    "Images": [
+      "/products/12575_9166-image-sglobyaema-kashta-asiaprefabrik-t49-2.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax B58",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема къща Bautrax B58 — 58 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B58",
+      "Площ": "58 м²"
+    },
+    "Images": [
+      "/products/12574_9167-image-sglobyaema-kashta-asiaprefabrik-t58.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax B59",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема къща Bautrax B59 — 59 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B59",
+      "Площ": "59 м²"
+    },
+    "Images": [
+      "/products/12573_9168-image-sglobyaema-kashta-asiaprefabrik-t59.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax B69",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема къща Bautrax B69 — 69 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B69",
+      "Площ": "69 м²"
+    },
+    "Images": [
+      "/products/12572_9169-image-sglobyaema-kashta-asiaprefabrik-t69.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax B78",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема къща Bautrax B78 — 78 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B78",
+      "Площ": "78 м²"
+    },
+    "Images": [
+      "/products/12571_9170-image-sglobyaema-kashta-asiaprefabrik-t78.webp"
+    ]
+  },
+  {
+    "Name": "Сглобяема къща Bautrax B80",
+    "Price": "Цена по договаряне",
+    "Description": "Сглобяема къща Bautrax B80 — 80 м².",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "B80",
+      "Площ": "80 м²"
+    },
+    "Images": [
+      "/products/12570_9171-image-sglobyaema-kashta-asiaprefabrik-t80.webp"
+    ]
+  },
+  {
+    "Name": "Модулна къща Bautrax 21 M²",
+    "Price": "Цена по договаряне",
+    "Description": "Модулна къща Bautrax — 21 м². Компактна и енергийно ефективна.",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Площ": "21 м²",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12596_9185-image-modulna-kashta-asiaprefabrik-21-m-1.webp"
+    ]
+  },
+  {
+    "Name": "Модулна къща Bautrax 90 M²",
+    "Price": "Цена по договаряне",
+    "Description": "Модулна къща Bautrax — 90 м². Просторна и модерна.",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Площ": "90 м²",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12595_9186-image-modulna-kashta-asiaprefabrik-90-m-1.webp"
+    ]
+  },
+  {
+    "Name": "Модулна къща Bautrax 3X9",
+    "Price": "Цена по договаряне",
+    "Description": "Модулна къща Bautrax 3X9 — компактен модул.",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "3X9",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12594_9187-image-modulna-kashta-asiaprefabrik-3x9.webp"
+    ]
+  },
+  {
+    "Name": "Модулна къща Bautrax COMPOSITE COATING",
+    "Price": "Цена по договаряне",
+    "Description": "Модулна къща с композитно покритие за максимална издръжливост.",
+    "Specs": {
+      "Brand": "Bautrax",
+      "Model": "COMPOSITE COATING",
+      "Origin": "Турция"
+    },
+    "Images": [
+      "/products/12593_9188-image-modulna-kashta-asiaprefabrik-composite-coating.webp"
+    ]
+  }
+]
