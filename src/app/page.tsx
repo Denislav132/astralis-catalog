@@ -5,7 +5,6 @@ import Hero from "@/components/Hero";
 import CategoryFilters, { type CategoryKey } from "@/components/CategoryFilters";
 import ProductCard from "@/components/ProductCard";
 import ProductSlideOver from "@/components/ProductSlideOver";
-import { supabase } from "@/lib/supabase";
 import type { Product } from "@/lib/types";
 import { getPublicSpecs } from "@/lib/public-specs";
 
@@ -41,14 +40,19 @@ export default function HomePage() {
     async function fetchProducts() {
       setLoading(true);
       try {
-        const { data, error } = await supabase
-          .from("products")
-          .select("*")
-          .or("status.eq.published,status.is.null")
-          .order("created_at", { ascending: true });
+        const response = await fetch("/api/products", { cache: "no-store" });
+
+        if (!response.ok) {
+          throw new Error(`Products API failed with ${response.status}`);
+        }
+
+        const { products: data, error } = (await response.json()) as {
+          products?: ProductRow[];
+          error?: string;
+        };
 
         if (error) {
-          console.error("Supabase Error:", error.message);
+          console.error("Products API Error:", error);
         } else if (data) {
           const mapped = (data as ProductRow[]).map((d) => ({
             id: d.id,
@@ -129,6 +133,7 @@ export default function HomePage() {
             <div className="relative w-full max-w-2xl group">
                <input 
                  type="text" 
+                 suppressHydrationWarning
                  placeholder="Търси модел или име..." 
                  value={search}
                  onChange={(e) => setSearch(e.target.value)}

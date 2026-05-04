@@ -37,7 +37,7 @@ export default async function PromoPage() {
             height: 4,
             background: "var(--accent)",
             borderRadius: 2,
-            marginBottom: 24,
+            margin: "0 auto 24px",
           }}
         />
         <h1
@@ -49,11 +49,12 @@ export default async function PromoPage() {
             letterSpacing: "-0.02em",
             marginBottom: 16,
             lineHeight: 1.1,
+            textAlign: "center",
           }}
         >
           Промоции
         </h1>
-        <p style={{ color: "var(--carbon-70)", fontSize: "1.2rem", marginBottom: 48, maxWidth: 600 }}>
+        <p style={{ color: "var(--carbon-70)", fontSize: "1.2rem", margin: "0 auto 48px", maxWidth: 600, textAlign: "center" }}>
           Актуални модели от промо серията. Изберете продукт и изпратете запитване за персонална оферта.
         </p>
 

@@ -31,3 +31,5 @@ alter table crm_sessions enable row level security;
 
 -- No public policies are created on purpose.
 -- The Next.js server uses the Supabase service role key for CRM auth operations.
+
+notify pgrst, 'reload schema';

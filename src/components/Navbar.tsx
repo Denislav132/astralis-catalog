@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const LINKS = [
-  { label: "Начало", href: "/" },
+  { label: "Начало", href: "/#top" },
   { label: "За нас", href: "/about" },
   { label: "Промоции", href: "/promo" },
   { label: "Каталог", href: "/#catalog" },
@@ -20,6 +20,14 @@ export default function Navbar() {
   const desktopLinkClass = `text-[13px] xl:text-sm font-bold uppercase tracking-[0.18em] transition-colors ${
     solidNav ? "text-slate-900 hover:text-orange-600" : "text-white hover:text-orange-300"
   }`;
+
+  function handleTopClick(event: React.MouseEvent<HTMLAnchorElement>) {
+    if (!isHome) return;
+    event.preventDefault();
+    setOpen(false);
+    window.history.replaceState(null, "", "/#top");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 60);
@@ -36,22 +44,26 @@ export default function Navbar() {
         : "bg-transparent py-6"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between lg:justify-center lg:gap-10 xl:gap-12">
         
         {/* Logo */}
-        <Link href="/" className="flex min-w-fit items-center gap-4 group">
-          <div className="flex flex-col">
-            <span className={`font-black text-[2rem] leading-none tracking-[-0.06em] transition-colors ${solidNav ? "text-slate-950" : "text-white"}`}>
-              ASTRALIS
-            </span>
-            <span className={`text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.34em] mt-1 transition-colors ${solidNav ? "text-orange-600" : "text-orange-300"}`}>
+        <Link href="/#top" onClick={handleTopClick} className="flex min-w-fit items-center group">
+          <div className="flex flex-col items-center">
+            <img
+              src="/images/astralis-wordmark.png"
+              alt="ASTRALIS"
+              className={`h-[30px] w-auto transition-all md:h-[36px] ${
+                solidNav ? "" : "brightness-0 invert"
+              }`}
+            />
+            <span className={`text-[11px] md:text-[12px] font-semibold uppercase tracking-[0.36em] mt-1 transition-colors ${solidNav ? "text-orange-600" : "text-orange-300"}`}>
               Контейнери
             </span>
           </div>
         </Link>
 
         {/* Desktop Links */}
-        <div className="hidden lg:flex items-center gap-8 xl:gap-10">
+        <div className="hidden lg:flex items-center gap-7 xl:gap-9">
           {LINKS.map((link) => (
             <Link 
               key={link.label}
@@ -63,7 +75,7 @@ export default function Navbar() {
           ))}
           <Link 
             href="/#contacts"
-            className={`px-8 py-4 rounded-full text-[13px] font-bold uppercase tracking-[0.18em] transition-all shadow-2xl active:scale-95 ${
+            className={`px-7 py-4 rounded-full text-[13px] font-bold uppercase tracking-[0.18em] transition-all shadow-2xl active:scale-95 ${
               solidNav 
               ? "bg-orange-600 hover:bg-orange-700 text-white shadow-orange-600/20" 
               : "bg-white/95 hover:bg-white text-slate-950 shadow-black/15"

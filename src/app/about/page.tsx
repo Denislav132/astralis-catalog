@@ -15,7 +15,7 @@ export default function AboutPage() {
             height: 4,
             background: "var(--accent)",
             borderRadius: 2,
-            marginBottom: 24,
+            margin: "0 auto 24px",
           }}
         />
         <h1
@@ -27,6 +27,7 @@ export default function AboutPage() {
             letterSpacing: "-0.02em",
             marginBottom: 32,
             lineHeight: 1.1,
+            textAlign: "center",
           }}
         >
           За нас

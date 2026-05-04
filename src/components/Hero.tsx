@@ -8,20 +8,6 @@ export default function Hero() {
 
       <div className="home-hero__inner">
         <div className="home-hero__copy">
-          <div className="home-hero__eyebrow">
-            <span />
-            Директно от производител
-          </div>
-
-          <h1 className="home-hero__title">
-            ASTRALIS
-            <span>Контейнери</span>
-          </h1>
-
-          <p className="home-hero__text">
-            Контейнери и модулни конструкции за бизнес, строителство и дом.
-          </p>
-
           <div className="home-hero__actions">
             <a className="home-hero__primary" href="/#catalog">
               Към каталога

@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import {
   addProduct,
   createCrmUser,
+  deleteCrmUser,
   deleteInquiry,
   deleteProduct,
   editProduct,
@@ -163,6 +164,36 @@ const CRM_STATUS_LABELS: Record<CrmUserStatus, string> = {
   active: "Активен",
   inactive: "Спрян",
 };
+
+const CRM_AUTH_SETUP_SQL = `create extension if not exists pgcrypto;
+
+create table if not exists crm_users (
+  id uuid default gen_random_uuid() primary key,
+  username text not null unique,
+  display_name text,
+  role text not null default 'sales'
+    check (role in ('owner', 'manager', 'sales')),
+  status text not null default 'active'
+    check (status in ('active', 'inactive')),
+  password_hash text not null,
+  created_at timestamp with time zone default timezone('utc'::text, now()) not null,
+  last_login_at timestamp with time zone
+);
+
+create table if not exists crm_sessions (
+  token_hash text primary key,
+  user_id uuid not null references crm_users(id) on delete cascade,
+  expires_at timestamp with time zone not null,
+  created_at timestamp with time zone default timezone('utc'::text, now()) not null
+);
+
+create index if not exists crm_sessions_user_id_idx on crm_sessions(user_id);
+create index if not exists crm_sessions_expires_at_idx on crm_sessions(expires_at);
+
+alter table crm_users enable row level security;
+alter table crm_sessions enable row level security;
+
+notify pgrst, 'reload schema';`;
 
 const ROLE_PERMISSIONS: Record<CrmRole, CrmPermission[]> = {
   owner: [
@@ -338,6 +369,7 @@ export default function AdminDashboardClient({
   const canDeleteLeads = roleCan(currentUser.role, "delete_leads");
   const canManageUsers = roleCan(currentUser.role, "manage_users");
   const defaultTab: AdminTab = canManageProducts ? "products" : canManageLeads ? "inquiries" : "users";
+  const isBootstrappingFirstOwner = currentUser.isLegacy && authSetupReady && crmUsers.length === 0;
 
   const [activeTab, setActiveTab] = useState<AdminTab>(defaultTab);
   const [showAddForm, setShowAddForm] = useState(false);
@@ -513,9 +545,11 @@ export default function AdminDashboardClient({
   async function handleCreateCrmUser(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setUserSaving(true);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
     try {
-      await createCrmUser(new FormData(e.currentTarget));
-      e.currentTarget.reset();
+      await createCrmUser(formData);
+      form.reset();
     } catch (err) {
       alert("Грешка при създаване на служител: " + err);
     }
@@ -529,6 +563,20 @@ export default function AdminDashboardClient({
       await updateCrmUser(id, new FormData(e.currentTarget));
     } catch (err) {
       alert("Грешка при обновяване на служител: " + err);
+    }
+    setLoadingId(null);
+  }
+
+  async function handleDeleteCrmUser(id: string) {
+    if (!confirm("Да изтрием ли този CRM служител? Ако просто искаш да спреш достъпа, избери статус 'Спрян'.")) {
+      return;
+    }
+
+    setLoadingId(id + "-user-delete");
+    try {
+      await deleteCrmUser(id);
+    } catch (err) {
+      alert("Грешка при изтриване на служител: " + err);
     }
     setLoadingId(null);
   }
@@ -1102,8 +1150,23 @@ export default function AdminDashboardClient({
                 <p className="text-sm font-bold text-slate-500 leading-relaxed">
                   {authSetupError || "Първо трябва да се създадат CRM таблиците в Supabase."}
                 </p>
-                <div className="mt-4 rounded-xl bg-slate-50 border border-slate-100 p-4 text-xs font-black text-slate-500">
-                  SQL файл: scripts/sql/crm_auth.sql
+                <div className="mt-4 flex flex-col gap-3">
+                  <div className="rounded-xl bg-slate-50 border border-slate-100 p-4 text-xs font-black text-slate-500">
+                    SQL файл: scripts/sql/crm_auth.sql
+                  </div>
+                  <textarea
+                    readOnly
+                    value={CRM_AUTH_SETUP_SQL}
+                    className="min-h-72 w-full rounded-xl border border-slate-200 bg-slate-950 p-4 font-mono text-xs text-slate-100 outline-none"
+                    onFocus={(event) => event.currentTarget.select()}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => navigator.clipboard.writeText(CRM_AUTH_SETUP_SQL)}
+                    className="w-fit rounded-xl bg-[#1C1C1A] px-5 py-3 text-[10px] font-black uppercase tracking-widest text-white"
+                  >
+                    Копирай SQL
+                  </button>
                 </div>
               </div>
             ) : (
@@ -1115,8 +1178,13 @@ export default function AdminDashboardClient({
                         Нов служител
                       </div>
                       <h2 className="text-xl font-black font-['Montserrat'] text-slate-900">
-                        Създай CRM достъп
+                        {isBootstrappingFirstOwner ? "Създай първия реален собственик" : "Създай CRM достъп"}
                       </h2>
+                      {isBootstrappingFirstOwner && (
+                        <p className="mt-2 max-w-xl text-sm font-bold text-slate-500 leading-relaxed">
+                          Това ще замени временния вход. След като го създадеш, влизаш вече с потребителско име и парола.
+                        </p>
+                      )}
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-2 text-[10px] font-black uppercase tracking-widest text-slate-500">
                       <div className="rounded-xl bg-slate-50 border border-slate-100 p-3">
@@ -1143,17 +1211,26 @@ export default function AdminDashboardClient({
                       placeholder="Име"
                       className="px-4 py-3 bg-slate-50 rounded-xl outline-none focus:ring-2 focus:ring-[#B8975A] font-bold text-sm"
                     />
-                    <select
-                      name="role"
-                      defaultValue="sales"
-                      className="px-4 py-3 bg-slate-50 rounded-xl outline-none focus:ring-2 focus:ring-[#B8975A] font-bold text-sm"
-                    >
-                      {Object.entries(CRM_ROLE_LABELS).map(([role, label]) => (
-                        <option key={role} value={role}>
-                          {label}
-                        </option>
-                      ))}
-                    </select>
+                    {isBootstrappingFirstOwner ? (
+                      <>
+                        <input type="hidden" name="role" value="owner" />
+                        <div className="px-4 py-3 bg-slate-50 rounded-xl font-bold text-sm text-slate-700">
+                          Роля: Собственик
+                        </div>
+                      </>
+                    ) : (
+                      <select
+                        name="role"
+                        defaultValue="sales"
+                        className="px-4 py-3 bg-slate-50 rounded-xl outline-none focus:ring-2 focus:ring-[#B8975A] font-bold text-sm"
+                      >
+                        {Object.entries(CRM_ROLE_LABELS).map(([role, label]) => (
+                          <option key={role} value={role}>
+                            {label}
+                          </option>
+                        ))}
+                      </select>
+                    )}
                     <input
                       name="password"
                       type="password"
@@ -1195,7 +1272,7 @@ export default function AdminDashboardClient({
                             <td colSpan={4} className="p-5 pr-8">
                               <form
                                 onSubmit={(e) => handleUpdateCrmUser(user.id, e)}
-                                className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_1fr_1fr_auto] gap-3"
+                                className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_1fr_1fr_auto_auto] gap-3"
                               >
                                 <input type="hidden" name="username" value={user.username} />
                                 <input
@@ -1239,6 +1316,19 @@ export default function AdminDashboardClient({
                                   className="bg-white border border-slate-200 text-slate-700 px-5 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest hover:border-[#B8975A] hover:text-[#B8975A] disabled:opacity-60"
                                 >
                                   {loadingId === user.id + "-user" ? "..." : "Запази"}
+                                </button>
+                                <button
+                                  type="button"
+                                  onClick={() => handleDeleteCrmUser(user.id)}
+                                  disabled={currentUser.id === user.id || loadingId === user.id + "-user-delete"}
+                                  className="bg-white border border-red-100 text-red-500 px-5 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-red-50 disabled:opacity-40 disabled:cursor-not-allowed"
+                                  title={
+                                    currentUser.id === user.id
+                                      ? "Не можеш да изтриеш собствения си достъп"
+                                      : "Изтрий служител"
+                                  }
+                                >
+                                  {loadingId === user.id + "-user-delete" ? "..." : "Изтрий"}
                                 </button>
                               </form>
                               <div className="mt-2 text-[11px] font-bold text-slate-400">

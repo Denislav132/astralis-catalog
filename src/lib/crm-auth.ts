@@ -152,10 +152,42 @@ async function setLegacyAdminCookie() {
   });
 }
 
-async function clearCrmCookies() {
+export async function clearCrmCookies() {
   const cookieStore = await cookies();
   cookieStore.delete(CRM_SESSION_COOKIE);
   cookieStore.delete(LEGACY_ADMIN_COOKIE);
+}
+
+export async function getCrmUsersCount(): Promise<{
+  setupReady: boolean;
+  count: number;
+  error?: string;
+}> {
+  const { count, error } = await supabaseAdmin
+    .from("crm_users")
+    .select("id", { count: "exact", head: true });
+
+  if (error) {
+    if (isMissingCrmAuthTablesError(error)) {
+      return {
+        setupReady: false,
+        count: 0,
+        error: "CRM auth таблиците още не са създадени в Supabase.",
+      };
+    }
+
+    console.error("CRM users count error:", error.message);
+    return { setupReady: true, count: 0, error: error.message };
+  }
+
+  return { setupReady: true, count: count || 0 };
+}
+
+async function canUseLegacyAdmin(): Promise<boolean> {
+  if (process.env.CRM_ALLOW_LEGACY_ADMIN !== "true") return false;
+
+  const usersState = await getCrmUsersCount();
+  return !usersState.setupReady || (!usersState.error && usersState.count === 0);
 }
 
 async function createCrmSession(userId: string) {
@@ -189,9 +221,13 @@ export async function loginCrm(formData: FormData): Promise<{ error?: string } |
   if (!password) return { error: "Въведете парола." };
 
   if (!username) {
-    if (password === process.env.ADMIN_PASSWORD) {
+    if (password === process.env.ADMIN_PASSWORD && (await canUseLegacyAdmin())) {
       await setLegacyAdminCookie();
       redirect("/admin/dashboard");
+    }
+
+    if (password === process.env.ADMIN_PASSWORD) {
+      return { error: "Временният вход вече е спрян. Влезте с реален CRM потребител." };
     }
 
     return { error: "Въведете потребител и парола." };
@@ -249,7 +285,6 @@ export async function getCrmSession(): Promise<{ user: CrmUser } | null> {
     if (session) {
       if (new Date(session.expires_at).getTime() <= Date.now()) {
         await supabaseAdmin.from("crm_sessions").delete().eq("token_hash", tokenHash);
-        cookieStore.delete(CRM_SESSION_COOKIE);
         return null;
       }
 
@@ -268,12 +303,13 @@ export async function getCrmSession(): Promise<{ user: CrmUser } | null> {
       }
 
       await supabaseAdmin.from("crm_sessions").delete().eq("token_hash", tokenHash);
-      cookieStore.delete(CRM_SESSION_COOKIE);
     }
   }
 
   if (cookieStore.get(LEGACY_ADMIN_COOKIE)?.value === "true") {
-    return { user: getLegacyOwner() };
+    if (await canUseLegacyAdmin()) {
+      return { user: getLegacyOwner() };
+    }
   }
 
   return null;

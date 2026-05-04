@@ -2,9 +2,12 @@
 
 import { supabaseAdmin } from "@/lib/supabase-admin";
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 import {
+  clearCrmCookies,
   CRM_ROLES,
   CRM_USER_STATUSES,
+  getCrmUsersCount,
   hashPassword,
   isCrmRole,
   isCrmUserStatus,
@@ -212,14 +215,22 @@ function validateCrmUserPayload(formData: FormData, requirePassword: boolean) {
 }
 
 export async function createCrmUser(formData: FormData) {
-  await requireCrmPermission("manage_users");
+  const currentUser = await requireCrmPermission("manage_users");
   const { username, displayName, role, status, password } = validateCrmUserPayload(formData, true);
+  const usersState = currentUser.isLegacy ? await getCrmUsersCount() : null;
+
+  if (currentUser.isLegacy && usersState?.setupReady && usersState.count > 0) {
+    throw new Error("Временният вход вече е спрян. Влезте с реален owner потребител.");
+  }
+
+  const effectiveRole = currentUser.isLegacy ? "owner" : role;
+  const effectiveStatus = currentUser.isLegacy ? "active" : status;
 
   const { error } = await supabaseAdmin.from("crm_users").insert({
     username,
     display_name: displayName || username,
-    role,
-    status,
+    role: effectiveRole,
+    status: effectiveStatus,
     password_hash: await hashPassword(password),
   });
 
@@ -232,6 +243,11 @@ export async function createCrmUser(formData: FormData) {
   }
 
   revalidatePath("/admin/dashboard");
+
+  if (currentUser.isLegacy) {
+    await clearCrmCookies();
+    redirect("/admin");
+  }
 }
 
 export async function updateCrmUser(id: string, formData: FormData) {
@@ -258,6 +274,19 @@ export async function updateCrmUser(id: string, formData: FormData) {
   if (status !== "active") {
     await supabaseAdmin.from("crm_sessions").delete().eq("user_id", id);
   }
+
+  revalidatePath("/admin/dashboard");
+}
+
+export async function deleteCrmUser(id: string) {
+  const currentUser = await requireCrmPermission("manage_users");
+
+  if (currentUser.id === id) {
+    throw new Error("Не можеш да изтриеш собствения си CRM достъп.");
+  }
+
+  const { error } = await supabaseAdmin.from("crm_users").delete().eq("id", id);
+  if (error) throw new Error(error.message);
 
   revalidatePath("/admin/dashboard");
 }
