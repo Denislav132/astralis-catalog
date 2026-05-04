@@ -23,10 +23,10 @@ New website inquiries can send an email notification to the sales team in additi
 Configure these variables in `.env.local`:
 
 ```bash
-LEAD_NOTIFICATION_EMAILS=rajkovdenislav@gmail.com
+LEAD_NOTIFICATION_EMAILS=sales@example.com
 SMTP_SERVICE=Gmail
-SMTP_USER=rajkovdenislav@gmail.com
-SMTP_FROM=rajkovdenislav@gmail.com
+SMTP_USER=sender@example.com
+SMTP_FROM=sender@example.com
 SMTP_PASS=your-google-app-password
 ```
 
