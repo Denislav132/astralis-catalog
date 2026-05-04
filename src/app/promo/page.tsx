@@ -7,6 +7,14 @@ import { getPublicSpecs } from "@/lib/public-specs";
 export const metadata: Metadata = {
   title: "Промоции — ASTRALIS",
   description: "Разгледайте нашите актуални промоции на контейнери и сглобяеми къщи.",
+  alternates: {
+    canonical: "/promo",
+  },
+  openGraph: {
+    title: "Промоции — ASTRALIS",
+    description: "Разгледайте нашите актуални промоции на контейнери и сглобяеми къщи.",
+    url: "/promo",
+  },
 };
 
 export default async function PromoPage() {

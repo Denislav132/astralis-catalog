@@ -3,6 +3,14 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "За нас — ASTRALIS",
   description: "Научете повече за ASTRALIS и нашите решения за контейнери и сглобяеми къщи.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "За нас — ASTRALIS",
+    description: "Научете повече за ASTRALIS и нашите решения за контейнери и сглобяеми къщи.",
+    url: "/about",
+  },
 };
 
 export default function AboutPage() {

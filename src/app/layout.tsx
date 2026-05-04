@@ -1,12 +1,54 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import AppFrame from "@/components/AppFrame";
+import { getSiteUrl } from "@/lib/site-url";
+
+const siteUrl = getSiteUrl();
+const siteTitle = "ASTRALIS Контейнери";
+const siteDescription =
+  "Контейнери, сглобяеми къщи и модулни конструкции за бизнес, строителство и дом. Каталог с модели, снимки и бързо запитване за оферта.";
 
 export const metadata: Metadata = {
-  title: "ASTRALIS - Контейнери",
-  description:
-    "Професионални строителни решения: префабрикувани контейнери, сглобяеми и модулни къщи. Качество, скорост и надеждност — доставяме до цяла България.",
-  keywords: "контейнери, сглобяеми къщи, модулни къщи, prefab, container house, България",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: `${siteTitle} | Контейнери и модулни конструкции`,
+    template: `%s | ${siteTitle}`,
+  },
+  description: siteDescription,
+  keywords: [
+    "контейнери",
+    "контейнери България",
+    "сглобяеми къщи",
+    "модулни къщи",
+    "модулни конструкции",
+    "жилищни контейнери",
+    "строителни контейнери",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: `${siteTitle} | Контейнери и модулни конструкции`,
+    description: siteDescription,
+    url: siteUrl,
+    siteName: siteTitle,
+    locale: "bg_BG",
+    type: "website",
+    images: [
+      {
+        url: "/images/hero-container-construction.png",
+        width: 1200,
+        height: 630,
+        alt: "ASTRALIS контейнери и модулни конструкции",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteTitle} | Контейнери и модулни конструкции`,
+    description: siteDescription,
+    images: ["/images/hero-container-construction.png"],
+  },
 };
 
 export default function RootLayout({
