@@ -1,6 +1,12 @@
 "use client";
 
-export default function Footer() {
+import type { SiteSettings } from "@/lib/site-settings";
+
+type FooterProps = {
+  settings: SiteSettings;
+};
+
+export default function Footer({ settings }: FooterProps) {
   return (
     <>
       {/* ── CONTACTS SECTION ── */}
@@ -42,9 +48,9 @@ export default function Footer() {
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
             {[
-              { icon: "📞", label: "Телефон", value: "+359 888 123 456" },
-              { icon: "✉️", label: "Имейл",  value: "info@astralis.bg" },
-              { icon: "📍", label: "Адрес",  value: "София, България" },
+              { icon: "📞", label: "Телефон", value: settings.contact_phone },
+              { icon: "✉️", label: "Имейл",  value: settings.contact_email },
+              { icon: "📍", label: "Адрес",  value: settings.contact_address },
             ].map((c) => (
               <div
                 key={c.label}

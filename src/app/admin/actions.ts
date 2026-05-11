@@ -290,3 +290,38 @@ export async function deleteCrmUser(id: string) {
 
   revalidatePath("/admin/dashboard");
 }
+
+export async function updateSiteSettings(formData: FormData) {
+  await requireCrmPermission("manage_users");
+
+  const contactPhone = getRequiredString(formData, "contact_phone");
+  const contactEmail = getRequiredString(formData, "contact_email");
+  const contactAddress = getRequiredString(formData, "contact_address");
+
+  if (!contactPhone) {
+    throw new Error("Телефонът е задължителен.");
+  }
+
+  if (!contactEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactEmail)) {
+    throw new Error("Въведете валиден имейл.");
+  }
+
+  if (!contactAddress) {
+    throw new Error("Адресът е задължителен.");
+  }
+
+  const { error } = await supabaseAdmin.from("site_settings").upsert({
+    id: "main",
+    contact_phone: contactPhone,
+    contact_email: contactEmail,
+    contact_address: contactAddress,
+    updated_at: new Date().toISOString(),
+  });
+
+  if (error) throw new Error(error.message);
+
+  revalidatePath("/");
+  revalidatePath("/about");
+  revalidatePath("/promo");
+  revalidatePath("/admin/dashboard");
+}

@@ -12,7 +12,9 @@ import {
   toggleProductStatus,
   updateCrmUser,
   updateInquiryStatus,
+  updateSiteSettings,
 } from "../actions";
+import type { SiteSettingsState } from "@/lib/site-settings";
 
 type InquiryStatus = "new" | "called" | "offer_sent" | "waiting" | "won" | "lost" | "archived";
 
@@ -48,7 +50,7 @@ type ProductCategory = "container" | "prefab" | "modular";
 type ProductCategoryFilter = "all" | ProductCategory;
 type ProductStatusFilter = "published" | "draft" | "all";
 type ProductPromoFilter = "all" | "promo" | "regular";
-type AdminTab = "products" | "inquiries" | "users";
+type AdminTab = "products" | "inquiries" | "users" | "settings";
 type CrmRole = "owner" | "manager" | "sales";
 type CrmUserStatus = "active" | "inactive";
 type CrmPermission =
@@ -192,6 +194,30 @@ create index if not exists crm_sessions_expires_at_idx on crm_sessions(expires_a
 
 alter table crm_users enable row level security;
 alter table crm_sessions enable row level security;
+
+notify pgrst, 'reload schema';`;
+
+const SITE_SETTINGS_SETUP_SQL = `create table if not exists site_settings (
+  id text primary key default 'main',
+  contact_phone text not null default '0879630620',
+  contact_email text not null default 'info@astralis.bg',
+  contact_address text not null default 'София, България',
+  updated_at timestamp with time zone default timezone('utc'::text, now()) not null
+);
+
+insert into site_settings (id, contact_phone, contact_email, contact_address)
+values ('main', '0879630620', 'info@astralis.bg', 'София, България')
+on conflict (id) do update set
+  contact_phone = excluded.contact_phone,
+  contact_email = excluded.contact_email,
+  contact_address = excluded.contact_address,
+  updated_at = timezone('utc'::text, now());
+
+alter table site_settings enable row level security;
+
+create policy "Public site settings are viewable by everyone."
+  on site_settings for select
+  using (true);
 
 notify pgrst, 'reload schema';`;
 
@@ -355,6 +381,7 @@ export default function AdminDashboardClient({
   crmUsers = [],
   authSetupReady = true,
   authSetupError,
+  siteSettingsState,
 }: {
   initialProducts: AdminProduct[];
   inquiries?: AdminInquiry[];
@@ -362,6 +389,7 @@ export default function AdminDashboardClient({
   crmUsers?: CrmUserRow[];
   authSetupReady?: boolean;
   authSetupError?: string;
+  siteSettingsState?: SiteSettingsState | null;
 }) {
   const canManageProducts = roleCan(currentUser.role, "manage_products");
   const canDeleteProducts = roleCan(currentUser.role, "delete_products");
@@ -377,6 +405,7 @@ export default function AdminDashboardClient({
   const [loadingId, setLoadingId] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [userSaving, setUserSaving] = useState(false);
+  const [settingsSaving, setSettingsSaving] = useState(false);
   const [inquirySearch, setInquirySearch] = useState("");
   const [inquiryStatusFilter, setInquiryStatusFilter] = useState<"all" | InquiryStatus>("all");
   const [productSearch, setProductSearch] = useState("");
@@ -581,6 +610,17 @@ export default function AdminDashboardClient({
     setLoadingId(null);
   }
 
+  async function handleUpdateSiteSettings(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setSettingsSaving(true);
+    try {
+      await updateSiteSettings(new FormData(e.currentTarget));
+    } catch (err) {
+      alert("Грешка при запазване на контактите: " + err);
+    }
+    setSettingsSaving(false);
+  }
+
   function openAddProduct() {
     if (!canManageProducts) return;
     setShowAddForm(true);
@@ -754,6 +794,18 @@ export default function AdminDashboardClient({
               }`}
             >
               👤 Служители
+            </button>
+          )}
+          {canManageUsers && (
+            <button
+              onClick={() => setActiveTab("settings")}
+              className={`py-2.5 px-6 rounded-lg font-bold text-xs uppercase tracking-widest transition-all ${
+                activeTab === "settings"
+                  ? "bg-white text-[#1C1C1A] shadow-sm"
+                  : "text-slate-500 hover:text-slate-800"
+              }`}
+            >
+              ⚙️ Настройки
             </button>
           )}
         </div>
@@ -1353,6 +1405,100 @@ export default function AdminDashboardClient({
                   </table>
                 </div>
               </>
+            )}
+          </div>
+        )}
+
+        {activeTab === "settings" && canManageUsers && (
+          <div className="space-y-5">
+            {!siteSettingsState?.setupReady ? (
+              <div className="bg-white border border-amber-100 rounded-2xl p-6 shadow-sm">
+                <div className="text-[10px] font-black text-amber-600 uppercase tracking-[0.22em] mb-2">
+                  Site settings не са активирани
+                </div>
+                <h2 className="text-xl font-black font-['Montserrat'] text-slate-900 mb-2">
+                  Липсва таблицата за контактните данни
+                </h2>
+                <p className="text-sm font-bold text-slate-500 leading-relaxed">
+                  {siteSettingsState?.error || "Първо трябва да се създаде таблицата site_settings в Supabase."}
+                </p>
+                <div className="mt-4 flex flex-col gap-3">
+                  <div className="rounded-xl bg-slate-50 border border-slate-100 p-4 text-xs font-black text-slate-500">
+                    SQL файл: scripts/sql/site_settings.sql
+                  </div>
+                  <textarea
+                    readOnly
+                    value={SITE_SETTINGS_SETUP_SQL}
+                    className="min-h-72 w-full rounded-xl border border-slate-200 bg-slate-950 p-4 font-mono text-xs text-slate-100 outline-none"
+                    onFocus={(event) => event.currentTarget.select()}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => navigator.clipboard.writeText(SITE_SETTINGS_SETUP_SQL)}
+                    className="w-fit rounded-xl bg-[#1C1C1A] px-5 py-3 text-[10px] font-black uppercase tracking-widest text-white"
+                  >
+                    Копирай SQL
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div className="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
+                <div className="text-[10px] font-black text-[#B8975A] uppercase tracking-[0.22em] mb-2">
+                  Контактни данни
+                </div>
+                <h2 className="text-xl font-black font-['Montserrat'] text-slate-900 mb-2">
+                  Редакция на публичните контакти
+                </h2>
+                <p className="max-w-2xl text-sm font-bold text-slate-500 leading-relaxed mb-6">
+                  Тези данни се показват в секцията “Свържете се с нас” на сайта.
+                </p>
+
+                <form onSubmit={handleUpdateSiteSettings} className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div>
+                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1 block">
+                      Телефон *
+                    </label>
+                    <input
+                      name="contact_phone"
+                      required
+                      defaultValue={siteSettingsState.settings.contact_phone}
+                      className="w-full px-4 py-3 bg-slate-50 rounded-xl outline-none focus:ring-2 focus:ring-[#B8975A] font-bold text-sm"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1 block">
+                      Имейл *
+                    </label>
+                    <input
+                      name="contact_email"
+                      required
+                      type="email"
+                      defaultValue={siteSettingsState.settings.contact_email}
+                      className="w-full px-4 py-3 bg-slate-50 rounded-xl outline-none focus:ring-2 focus:ring-[#B8975A] font-bold text-sm"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1 block">
+                      Адрес *
+                    </label>
+                    <input
+                      name="contact_address"
+                      required
+                      defaultValue={siteSettingsState.settings.contact_address}
+                      className="w-full px-4 py-3 bg-slate-50 rounded-xl outline-none focus:ring-2 focus:ring-[#B8975A] font-bold text-sm"
+                    />
+                  </div>
+                  <div className="md:col-span-3">
+                    <button
+                      type="submit"
+                      disabled={settingsSaving}
+                      className="bg-[#1C1C1A] text-white px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest disabled:opacity-60"
+                    >
+                      {settingsSaving ? "Запазване..." : "Запази контактите"}
+                    </button>
+                  </div>
+                </form>
+              </div>
             )}
           </div>
         )}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import AppFrame from "@/components/AppFrame";
 import { getSiteUrl } from "@/lib/site-url";
+import { fetchSiteSettings } from "@/lib/site-settings";
 
 const siteUrl = getSiteUrl();
 const siteTitle = "ASTRALIS Контейнери";
@@ -51,9 +52,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const siteSettingsState = await fetchSiteSettings();
+
   return (
     <html lang="bg" className="h-full" suppressHydrationWarning>
       <head>
@@ -61,7 +64,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className="min-h-full flex flex-col">
-        <AppFrame>{children}</AppFrame>
+        <AppFrame settings={siteSettingsState.settings}>{children}</AppFrame>
       </body>
     </html>
   );

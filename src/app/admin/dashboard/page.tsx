@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { supabaseAdmin } from "@/lib/supabase-admin";
 import AdminDashboardClient from "./AdminDashboardClient";
 import { fetchCrmUsers, getCrmSession, hasCrmPermission } from "@/lib/crm-auth";
+import { fetchSiteSettings } from "@/lib/site-settings";
 
 export const dynamic = "force-dynamic";
 
@@ -31,6 +32,9 @@ export default async function AdminDashboardPage() {
   const usersState = hasCrmPermission(currentUser, "manage_users")
     ? await fetchCrmUsers()
     : { setupReady: true, users: [] };
+  const siteSettingsState = hasCrmPermission(currentUser, "manage_users")
+    ? await fetchSiteSettings()
+    : null;
 
   return (
     <AdminDashboardClient
@@ -40,6 +44,7 @@ export default async function AdminDashboardPage() {
       crmUsers={usersState.users}
       authSetupReady={usersState.setupReady}
       authSetupError={usersState.error}
+      siteSettingsState={siteSettingsState}
     />
   );
 }
