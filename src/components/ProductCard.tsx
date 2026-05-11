@@ -8,6 +8,8 @@ interface ProductCardProps {
   product: Product;
   index: number;
   onSelect: (p: Product) => void;
+  isCompared?: boolean;
+  onToggleCompare?: (p: Product) => void;
 }
 
 function extractSqm(name: string): string | null {
@@ -18,7 +20,13 @@ function extractSqm(name: string): string | null {
   return null;
 }
 
-export default function ProductCard({ product, index, onSelect }: ProductCardProps) {
+export default function ProductCard({
+  product,
+  index,
+  onSelect,
+  isCompared = false,
+  onToggleCompare,
+}: ProductCardProps) {
   const [imgError, setImgError] = useState(false);
   const publicSpecs = getPublicSpecs(product.Specs);
   const hasPrice =
@@ -106,7 +114,18 @@ export default function ProductCard({ product, index, onSelect }: ProductCardPro
       </div>
 
       {/* CTA */}
-      <div style={{ marginTop: "auto" }}>
+      <div className="product-card-actions">
+        <button
+          type="button"
+          className={`compare-card-btn ${isCompared ? "active" : ""}`}
+          onClick={() => onToggleCompare?.(product)}
+          aria-pressed={isCompared}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
+            <path d="M8 7h12M8 17h12M4 7h.01M4 17h.01" />
+          </svg>
+          {isCompared ? "Избрано" : "Сравни"}
+        </button>
         <button
           id={`product-details-btn-${index}`}
           className="details-btn"

@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect } from "react";
 import Hero from "@/components/Hero";
 import CategoryFilters, { type CategoryKey } from "@/components/CategoryFilters";
 import ProductCard from "@/components/ProductCard";
+import ProductCompare from "@/components/ProductCompare";
 import ProductSlideOver from "@/components/ProductSlideOver";
 import type { Product } from "@/lib/types";
 import { getPublicSpecs } from "@/lib/public-specs";
@@ -35,6 +36,8 @@ export default function HomePage() {
   const [filter, setFilter] = useState<CategoryKey>("container");
   const [search, setSearch] = useState("");
   const [selected, setSelected] = useState<(Product & { _category?: string; _index?: number }) | null>(null);
+  const [compareProducts, setCompareProducts] = useState<Product[]>([]);
+  const [compareOpen, setCompareOpen] = useState(false);
 
   useEffect(() => {
     async function fetchProducts() {
@@ -109,6 +112,28 @@ export default function HomePage() {
     );
   }, [search, filtered]);
 
+  function productKey(product: Product) {
+    return product.id || product.Name;
+  }
+
+  function handleToggleCompare(product: Product) {
+    setCompareProducts((current) => {
+      const exists = current.some((item) => productKey(item) === productKey(product));
+      if (exists) {
+        const next = current.filter((item) => productKey(item) !== productKey(product));
+        if (next.length < 2) setCompareOpen(false);
+        return next;
+      }
+
+      if (current.length >= 3) {
+        alert("Можете да сравнявате до 3 продукта едновременно.");
+        return current;
+      }
+
+      return [...current, product];
+    });
+  }
+
   return (
     <div className="bg-[#F8F9FA]">
       <Hero />
@@ -159,6 +184,8 @@ export default function HomePage() {
                   key={product.id || idx} 
                   index={idx}
                   product={product} 
+                  isCompared={compareProducts.some((item) => productKey(item) === productKey(product))}
+                  onToggleCompare={handleToggleCompare}
                   onSelect={(p) => setSelected({ ...p, _index: idx })} 
                 />
               ))}
@@ -184,6 +211,21 @@ export default function HomePage() {
         key={selected?.id || selected?.Name || "empty"}
         product={selected} 
         onClose={() => setSelected(null)} 
+      />
+
+      <ProductCompare
+        products={compareProducts}
+        open={compareOpen}
+        onOpen={() => setCompareOpen(true)}
+        onClose={() => setCompareOpen(false)}
+        onClear={() => {
+          setCompareProducts([]);
+          setCompareOpen(false);
+        }}
+        onRemove={(product) =>
+          setCompareProducts((current) => current.filter((item) => productKey(item) !== productKey(product)))
+        }
+        onSelect={(product) => setSelected(product)}
       />
     </div>
   );
