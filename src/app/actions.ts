@@ -14,12 +14,27 @@ export async function submitInquiry(formData: FormData, productId: string | unde
   const transport = formData.get("transport") as string;
   const crane = formData.get("crane") as string;
   const budget = formData.get("budget") as string;
+  const configurationType = formData.get("configuration_type") as string;
+  const configurationSize = formData.get("configuration_size") as string;
+  const configurationColor = formData.get("configuration_color") as string;
+  const configurationExtras = formData.getAll("configuration_extras").map(String).filter(Boolean);
+  const configurationUse = formData.get("configuration_use") as string;
 
   if (!name || !phone) {
     throw new Error("Моля, попълнете име и телефон.");
   }
 
   let finalMessage = "";
+  if (configurationType || configurationSize || configurationColor || configurationExtras.length || configurationUse) {
+    finalMessage += "Конфигурация от сайта:\n";
+    if (configurationType) finalMessage += `• Тип: ${configurationType}\n`;
+    if (configurationSize) finalMessage += `• Размер: ${configurationSize}\n`;
+    if (configurationColor) finalMessage += `• Цвят: ${configurationColor}\n`;
+    if (configurationExtras.length) finalMessage += `• Екстри: ${configurationExtras.join(", ")}\n`;
+    if (configurationUse) finalMessage += `• Предназначение: ${configurationUse}\n`;
+    finalMessage += "\n";
+  }
+
   if (assembled) finalMessage += `• Доставка: ${assembled}\n`;
   if (el) finalMessage += `• Ел. инсталация: ${el}\n`;
   if (vik) finalMessage += `• ВиК: ${vik}\n`;
