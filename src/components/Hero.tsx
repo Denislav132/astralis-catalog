@@ -7,6 +7,16 @@ export default function Hero() {
       <div className="home-hero__shade" />
 
       <div className="home-hero__inner">
+        <div className="home-hero__feature home-hero__feature--shell">
+          <span>Стоманена конструкция</span>
+        </div>
+        <div className="home-hero__feature home-hero__feature--window">
+          <span>PVC дограма</span>
+        </div>
+        <div className="home-hero__feature home-hero__feature--panel">
+          <span>Изолиран термопанел</span>
+        </div>
+
         <div className="home-hero__copy">
           <div className="home-hero__actions">
             <a className="home-hero__primary" href="/#catalog">
