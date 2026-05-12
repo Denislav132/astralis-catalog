@@ -18,13 +18,35 @@ export default function Hero() {
         </div>
 
         <div className="home-hero__copy">
-          <div className="home-hero__actions">
-            <a className="home-hero__primary" href="/#catalog">
-              Към каталога
-            </a>
-            <a className="home-hero__secondary" href="/#contacts">
-              Връзка с нас
-            </a>
+          <div className="home-hero__dock">
+            <div className="home-hero__intro">
+              <span>ASTRALIS контейнерни решения</span>
+              <strong>Готови модели за бизнес, строителство и дом.</strong>
+            </div>
+
+            <div className="home-hero__actions">
+              <a className="home-hero__primary" href="/#catalog">
+                Към каталога
+              </a>
+              <a className="home-hero__secondary" href="/#contacts">
+                Връзка с нас
+              </a>
+            </div>
+
+            <div className="home-hero__quick" aria-label="Бърз преглед на каталога">
+              <a href="/#catalog">
+                <span>Контейнери</span>
+                <strong>36</strong>
+              </a>
+              <a href="/#catalog">
+                <span>Сглобяеми къщи</span>
+                <strong>53</strong>
+              </a>
+              <a href="/#catalog">
+                <span>Модулни къщи</span>
+                <strong>4</strong>
+              </a>
+            </div>
           </div>
         </div>
       </div>
