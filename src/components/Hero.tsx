@@ -65,7 +65,7 @@ export default function Hero() {
         <div className="home-hero__inner">
           <div className="home-hero__copy">
             <span className="home-hero__eyebrow">ASTRALIS контейнерни решения</span>
-            <h1>Контейнери за работа, живеене и бърз старт.</h1>
+            <h1>Контейнери за бизнес и дом.</h1>
             <p>
               Изберете готов модел или конфигурирайте базово запитване. Ние ще върнем конкретна оферта според
               предназначение, размер, екстри и транспорт.

@@ -16,7 +16,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
-  const solidNav = !isHome || scrolled;
+  const solidNav = true;
   const desktopLinkClass = `text-[13px] xl:text-sm font-bold uppercase tracking-[0.18em] transition-colors ${
     solidNav ? "text-slate-900 hover:text-orange-600" : "text-white hover:text-orange-300"
   }`;
